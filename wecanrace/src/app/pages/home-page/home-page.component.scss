@@ -1,5 +1,69 @@
-.button-flex {
+.form-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem 3rem;
+    width: 450px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin: .3125rem;
+}
+
+.input-group {
+    width: 100%;
+    margin: 1rem 0 2rem 0;
+
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid #003049;
+        margin: 0.5rem 0;
+    }
+
+    input:hover {
+        border: 2px solid #D62828;
+    }
+}
+
+.sign-in-button {
+    width: 100%;
+
+}
+
+.sign-up-text {
+    margin-top: 1.5rem;
+    color: #666;
+}
+
+.sign-up-text a {
+    color: #003049;
+    text-decoration: none;
+}
+
+.or-text {
+    margin: 1.5rem 0;
+    color: #666;
+}
+
+.social-buttons {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+}
+
+
+.google-button,
+.facebook-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    width: 48%;
 }
