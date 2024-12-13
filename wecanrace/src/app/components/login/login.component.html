@@ -1,13 +1,12 @@
-<form class="form">
+<form (ngSubmit)="onSubmit()" class="form" [formGroup]="loginForm">
     <div class="input-group">
-        <input matInput type="email" name="email" id="email-form" required placeholder="Email Address" />
-        <input matInput type="password" name="password" id="password-form" required placeholder="Password" />
-
+        <input matInput type="text" name="email" formControlName="email" id="email-form" required
+            placeholder="Email Address" />
+        <input matInput type="text" name="password" formControlName="password" id="password-form" required
+            placeholder="Password" />
     </div>
 
-
-
-    <button mat-raised-button class="sign-in-button">Login</button>
+    <button type="submit" mat-raised-button class="sign-in-button">Login</button>
 
     <p class="or-text">Or continue with</p>
 
@@ -19,5 +18,6 @@
             <mat-icon>facebook</mat-icon> Facebook
         </button>
     </div>
-
 </form>
+<p>{{ loginForm.get('email')?.value }}</p>
+<p>{{ loginForm.get('password')?.value }}</p>

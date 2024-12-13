@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import axios, { AxiosInstance } from 'axios';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,17 +10,17 @@ export class HttpRequestService {
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: 'http://localhost:3030',
+      baseURL: environment.apiUrl, 
       headers: {
         'Content-Type': 'application/json',
-        'API-KEY': process.env['API_KEY'],
+        "x-api-key": environment.apiKey,
       },
       timeout: 10000,
     });
   }
 
   // Login
-  async login(data: { email: string; password: string }): Promise<any> {
+  async login(data : any): Promise<any> {
     try {
       const response = await this.axiosClient.post('/login', data);
       return response.data;
