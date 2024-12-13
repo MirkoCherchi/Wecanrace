@@ -2,33 +2,16 @@
     <div class="form-card">
         <h1>Welcome!</h1>
         <p>Please login to continue</p>
+        <mat-tab-group fitInkBarToContent>
+            <mat-tab label="Login">
+                <app-login></app-login>
+            </mat-tab>
+            <mat-tab label="Register">
+                <app-register></app-register>
+            </mat-tab>
 
-        <form class="form">
-            <div class="input-group">
-                <input matInput type="email" name="email" id="email-form" required placeholder="Email Address" />
-                <input matInput type="password" name="password" id="password-form" required placeholder="Password" />
-
-            </div>
+        </mat-tab-group>
 
 
-
-            <button mat-raised-button class="sign-in-button" routerLink="/login">Login</button>
-
-            <p class="sign-up-text">
-                Don't have an account? <a routerLink="/register">Register</a>
-            </p>
-
-            <p class="or-text">Or continue with</p>
-
-            <div class="social-buttons">
-                <button mat-stroked-button class="google-button">
-                    <mat-icon>g_translate</mat-icon> Google
-                </button>
-                <button mat-stroked-button class="facebook-button">
-                    <mat-icon>facebook</mat-icon> Facebook
-                </button>
-            </div>
-
-        </form>
     </div>
 </div>
