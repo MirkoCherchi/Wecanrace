@@ -1,49 +1,24 @@
-import { Injectable } from '@angular/core';
-import axios, { AxiosInstance } from 'axios';
-import { environment } from '../../environment/environment';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
+import { environment } from "../../environment/environment";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root' 
 })
 export class HttpRequestService {
-  private axiosClient: AxiosInstance;
+  private options = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-api-key": environment.apiKey,
+    }),
+  };
 
-  constructor() {
-    this.axiosClient = axios.create({
-      baseURL: environment.apiUrl, 
-      headers: {
-        'Content-Type': 'application/json',
-        "x-api-key": environment.apiKey,
-      },
-      timeout: 10000,
-    });
+  constructor(http: HttpClient) {}
+
+  http: HttpClient = inject(HttpClient);
+
+  postLogin(json: any) {
+    return this.http.post<any>(`${environment.apiUrl}/login`, json, this.options);
   }
 
-  // Login
-  async login(data : any): Promise<any> {
-    try {
-      const response = await this.axiosClient.post('/login', data);
-      return response.data;
-    } catch (error) {
-      console.error('Error during login:', error);
-      throw error;
-    }
-  }
-
-  // Register
-  async register(data: {
-    name: string;
-    lastName: string;
-    email: string;
-    password: string;
-    repassword: string;
-  }): Promise<any> {
-    try {
-      const response = await this.axiosClient.post('/register', data);
-      return response.data;
-    } catch (error) {
-      console.error('Error during registration:', error);
-      throw error;
-    }
-  }
 }

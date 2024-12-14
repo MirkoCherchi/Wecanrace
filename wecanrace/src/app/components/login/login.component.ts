@@ -20,16 +20,21 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(public httpRequest: HttpRequestService) {}
+  constructor(private httpRequest: HttpRequestService) {}
 
   
   onSubmit() {
-  
     const loginData = this.loginForm.value;
-    this.httpRequest.login(loginData).then((res) => {
-      console.log(res)
-    }).catch((error) => {
-      console.error(error);
-    });
+    console.log('Login Data:', loginData);  
+    this.httpRequest.postLogin(loginData).subscribe(
+      (response) => {
+        console.log('Login response:', response);
+      },
+      (error) => {
+        console.error('Login error:', error);
+      }
+    );
   }
+  
+  
 }

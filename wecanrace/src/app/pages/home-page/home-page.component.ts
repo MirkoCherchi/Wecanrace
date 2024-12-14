@@ -11,6 +11,7 @@ import { RegisterComponent } from '../../components/register/register.component'
 
 
 
+
 @Component({
   selector: 'app-home-page',
   imports: [ MatCardModule, MatDividerModule, MatButtonModule, MatIconModule, MatTabsModule, LoginComponent, RegisterComponent],
