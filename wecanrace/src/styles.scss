@@ -9,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
@@ -19,6 +20,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+
 }
 
 .form-card {
@@ -33,6 +35,10 @@ body {
 h1 {
     font-size: 2.5rem;
     color: #333;
+}
+
+h2 {
+    margin-top: 2rem;
 }
 
 p {
@@ -89,4 +95,10 @@ p {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     width: 48%;
+}
+
+.flex-input {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
 }

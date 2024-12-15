@@ -1,14 +1,19 @@
-<!-- <form class="form">
+<h2>Effettua La registrazione</h2>
+<form (ngSubmit)="onSubmit()" class="form" [formGroup]="registerForm">
     <div class="input-group">
-        <input matInput type="email" name="email" id="email-form" required placeholder="Email Address" />
-        <input matInput type="password" name="password" id="password-form" required placeholder="Password" />
+        <div class="flex-input"><input matInput type="text" formControlName="name" placeholder="Inserisci il tuo nome">
+            <input matInput type="text" formControlName="lastname" placeholder="Inserisci il tuo cognome">
+        </div>
+        <input matInput type="email" formControlName="email" placeholder="Inserisci la tua email">
+
+        <input matInput type="text" name="password" formControlName="password" id="password-form" required
+            placeholder="Password" />
+        <input matInput type="text" name="repassword" formControlName="repassword" id="password-form" required
+            placeholder="Conferma Password" />
 
     </div>
-    <button mat-raised-button class="sign-in-button">Register</button>
 
-    <p class="sign-up-text">
-        Don't have an account? <a routerLink="/register">Register</a>
-    </p>
+    <button type="submit" mat-raised-button class="sign-in-button">Register</button>
 
     <p class="or-text">Or continue with</p>
 
@@ -20,5 +25,4 @@
             <mat-icon>facebook</mat-icon> Facebook
         </button>
     </div>
-
-</form> -->
+</form>
