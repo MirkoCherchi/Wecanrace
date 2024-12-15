@@ -1,13 +1,12 @@
-<h2>Effettua il Login</h2>
+<h2>Login</h2>
 <form (ngSubmit)="onSubmit()" class="form" [formGroup]="loginForm">
     <div class="input-group">
-        <input matInput type="text" name="email" formControlName="email" id="email-form" required
-            placeholder="Email Address" />
+        <input matInput type="text" name="email" formControlName="email" id="email-form" required placeholder="Email" />
         <input matInput type="text" name="password" formControlName="password" id="password-form" required
             placeholder="Password" />
     </div>
 
-    <button type="submit" mat-raised-button class="sign-in-button">Login</button>
+    <button type="submit" mat-raised-button class="login-button">Login</button>
 
     <p class="or-text">Or continue with</p>
 
@@ -20,5 +19,3 @@
         </button>
     </div>
 </form>
-<p>{{ loginForm.get('email')?.value }}</p>
-<p>{{ loginForm.get('password')?.value }}</p>

@@ -1,19 +1,19 @@
-<h2>Effettua La registrazione</h2>
+<h2>Register</h2>
 <form (ngSubmit)="onSubmit()" class="form" [formGroup]="registerForm">
     <div class="input-group">
-        <div class="flex-input"><input matInput type="text" formControlName="name" placeholder="Inserisci il tuo nome">
-            <input matInput type="text" formControlName="lastname" placeholder="Inserisci il tuo cognome">
+        <div class="flex-input"><input matInput type="text" formControlName="name" placeholder="First Name">
+            <input matInput type="text" formControlName="lastname" placeholder="Last Name">
         </div>
-        <input matInput type="email" formControlName="email" placeholder="Inserisci la tua email">
+        <input matInput type="email" formControlName="email" placeholder="Email">
 
         <input matInput type="text" name="password" formControlName="password" id="password-form" required
             placeholder="Password" />
         <input matInput type="text" name="repassword" formControlName="repassword" id="password-form" required
-            placeholder="Conferma Password" />
+            placeholder="Confirm Password" />
 
     </div>
 
-    <button type="submit" mat-raised-button class="sign-in-button">Register</button>
+    <button type="submit" mat-raised-button class="register-button">Register</button>
 
     <p class="or-text">Or continue with</p>
 
