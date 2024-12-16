@@ -13,18 +13,11 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #F1F2EB, #D8DAD3);
+    background: #F1F2EB;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
-
-}
-
-
-.container {
-    height: 100%;
 }
 
 
@@ -32,7 +25,7 @@ body {
     background: #fff;
     border-radius: 15px;
     padding: 2rem 3rem;
-    width: 550px;
+    width: 500px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     height: 100% !important;
