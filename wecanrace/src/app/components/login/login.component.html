@@ -1,8 +1,9 @@
 <h2>Login</h2>
 <form (ngSubmit)="onSubmit()" class="form" [formGroup]="loginForm">
     <div class="input-group">
-        <input matInput type="text" name="email" formControlName="email" id="email-form" required placeholder="Email" />
-        <input matInput type="text" name="password" formControlName="password" id="password-form" required
+        <input matInput type="email" name="email" formControlName="email" id="email-form" required
+            placeholder="Email" />
+        <input matInput type="password" name="password" formControlName="password" id="password-form" required
             placeholder="Password" />
     </div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,13 +18,13 @@ import { CommonModule } from '@angular/common';
     MatButtonModule, 
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  // Definizione del FormGroup per il form di registrazione
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     lastname: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -34,12 +34,10 @@ export class RegisterComponent {
   });
 
   constructor(private httpRequest: HttpRequestService) {}
-
+private _snackBar = inject(MatSnackBar);
  
   onSubmit() {
     const formData = this.registerForm.value;
-
-    // Controlla che le password combacino
     if (formData.password !== formData.repassword) {
       console.error('Le password non coincidono!');
       return;
@@ -48,13 +46,21 @@ export class RegisterComponent {
     console.log('Dati di registrazione:', formData);
 
    
-    this.httpRequest.postRegister(formData).subscribe(
-      (response) => {
+    this.httpRequest.postRegister(formData).subscribe({
+      next: (response) => {
         console.log('Registrazione avvenuta con successo:', response);
+        this.openSnackBar(response, 'Close');
       },
-      (error) => {
+      error: (error) => {
         console.error('Errore nella registrazione:', error);
-      }
-    );
+        this.openSnackBar({message: 'Register failed'}, 'Close');
+      },
+      complete: () => {
+        this.registerForm.reset(); 
+      },
+    });
+  }
+  openSnackBar(response: any, action: string) {
+    this._snackBar.open(response.message, action);
   }
 }

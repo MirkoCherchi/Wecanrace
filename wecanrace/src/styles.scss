@@ -8,7 +8,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
+
 }
 
 body {
@@ -24,7 +24,6 @@ body {
 
 
 .container {
-    overflow: hidden;
     height: 100%;
 }
 
@@ -37,6 +36,10 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     height: 100% !important;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 
 }
 
@@ -68,6 +71,7 @@ p {
         border-radius: 10px;
         border: 2px solid #003049;
         margin: 0.5rem 0;
+        color: #000;
     }
 
     input:hover {
