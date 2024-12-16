@@ -13,10 +13,16 @@
 
     <div class="social-buttons">
         <button mat-stroked-button class="google-button">
-            <mat-icon>g_translate</mat-icon> Google
+            <div class="icon-flex">
+                <fa-icon [icon]="facebook"></fa-icon>
+                <p>Facebook</p>
+            </div>
         </button>
         <button mat-stroked-button class="facebook-button">
-            <mat-icon>facebook</mat-icon> Facebook
+            <div class="icon-flex">
+                <fa-icon [icon]="google"></fa-icon>
+                <p>Google</p>
+            </div>
         </button>
     </div>
 </form>

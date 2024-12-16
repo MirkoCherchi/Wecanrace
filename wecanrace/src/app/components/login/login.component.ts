@@ -11,21 +11,27 @@ import { HttpRequestService } from '../../service/http-request.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import  {faFacebook}  from '@fortawesome/free-brands-svg-icons';
+import  {faGoogle}  from '@fortawesome/free-brands-svg-icons';
+
 
 @Component({
   selector: 'app-login',
-  imports: [MatIconModule, MatButtonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+  imports: [MatIconModule, MatButtonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, FontAwesomeModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 
 export class LoginComponent {
+  
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
   private _snackBar = inject(MatSnackBar);
-
+  facebook = faFacebook;
+  google = faGoogle;
   constructor(private httpRequest: HttpRequestService) {}
 
   onSubmit() {
@@ -48,4 +54,6 @@ export class LoginComponent {
   openSnackBar(response: any, action: string) {
     this._snackBar.open(response.message, action);
   }
+  
 }
+

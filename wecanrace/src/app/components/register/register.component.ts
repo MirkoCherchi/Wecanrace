@@ -8,6 +8,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HttpRequestService } from '../../service/http-request.service';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import  {faFacebook}  from '@fortawesome/free-brands-svg-icons';
+import  {faGoogle}  from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +23,7 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatFormFieldModule,
     MatInputModule,
+    FontAwesomeModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
@@ -35,7 +39,9 @@ export class RegisterComponent {
 
   constructor(private httpRequest: HttpRequestService) {}
 private _snackBar = inject(MatSnackBar);
- 
+
+ facebook = faFacebook;
+   google = faGoogle;
   onSubmit() {
     const formData = this.registerForm.value;
     if (formData.password !== formData.repassword) {
